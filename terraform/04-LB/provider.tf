@@ -1,3 +1,3 @@
-provider = "aws" {
+providers "aws" {
     region = "ap-south-1"
 }
