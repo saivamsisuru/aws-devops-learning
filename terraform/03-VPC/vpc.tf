@@ -9,7 +9,7 @@ resource "aws_vpc" "myvpc"{
     }
 }
 
-resource "aws_subet" "public" {
+resource "aws_subnet" "public" {
     vpc_id = aws_vpc.myvpc.id
     cidr_block = "10.0.0.0/24"
     availability_zone = "ap-south-1a"
@@ -20,7 +20,7 @@ resource "aws_subet" "public" {
     }
 }
 
-resource "aws_subet" "private"{
+resource "aws_subnet" "private"{
     vpc_id=aws_vpc.myvpc.id
     cidr_block = "10.0.2.0/24"
     availability_zone = "ap-south-1b"
@@ -43,7 +43,7 @@ resource "aws_route_table" "public_rt" {
 
     route {
         cidr_block = "0.0.0.0/0"
-        gateway_id = aws_internet_gateway.id
+        gateway_id = aws_internet_gateway.gw.id
     }
 
     tags = {
